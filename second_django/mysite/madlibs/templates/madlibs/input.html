@@ -1,0 +1,12 @@
+<h1>{{ entry.entry_text }}</h1>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>
+{% endif %}
+<!-- I think this template is not properly hooked up to the other files, urls, views, and maybe another few-->
+<form action="{% url 'input' entry.id %}" method="post">  <!---# This should have something like madlibs:input instead of madlibs:detail???-->
+    {% csrf_token %}
+    <!-- If you use a for loop and a for loop counter, keeping track of the input's id is much easier-->
+    <input type="text" name="input" id="input" value="{{ entry.id }}"> <!-- you can use entry.id here-->
+    <!-- Don't use a label for a text fiels unless you want it to the rith side of the box-->
+    <!--<label for="choice">{{entry.entry_text}}</label>  #  maybe use a list give from the calling function like noun, verb, etc-->
+    <input type="submit" value="Submit">
+</form>

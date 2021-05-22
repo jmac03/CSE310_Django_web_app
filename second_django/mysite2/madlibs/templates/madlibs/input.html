@@ -1,0 +1,12 @@
+<h1>{{ master.story_name }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'madlibs:input' master.id %}" method="post">
+    {% csrf_token %}
+    {% for textentry in master.textentry_set.all %}
+        <input type="radio" name="textentry" id="textentry{{ forloop.counter }}" value="{{ textentry.id }}">
+        <label for="textentry{{ forloop.counter }}">{{ textentry.entry_text }}</label><br>
+    {% endfor %}
+    <input type="submit" value="Submit">
+</form>

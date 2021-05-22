@@ -1,0 +1,9 @@
+<h1>{{ master.story_name }}</h1>
+{% if selected_textentry.phonics == 'verb' %}
+    <p>I have an apple, and it is <strong>{{ selected_textentry.entry_text }}</strong>ing...</p>
+    <p>Bam! <strong>{{ selected_textentry.entry_text }}</strong>ing apple.</p>
+{% elif selected_textentry.phonics == 'noun' %}
+    <p>I have a <span><strong>{{ selected_textentry }}</strong></span>, I have an apple...</p>
+    <p>Bam! apple-<span><strong>{{ selected_textentry }}</strong></span>.</p>
+{% endif %}
+<a href="{% url 'madlibs:input' master.id %}">Choose a new word?</a>

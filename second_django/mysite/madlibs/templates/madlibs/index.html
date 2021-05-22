@@ -1,0 +1,13 @@
+{% if latest_entry_list %}
+    {% for entry in latest_entry_list %}
+            <li><a href="{% url 'detail' entry.id %}/">{{ entry.entry_text }}</a></li>  <!-- When  I change detail to madlibs:detail, an error is thrown. madlibs is not registered-->
+    {% endfor %}
+    <!--{% for entry in latest_entry_list %} -->
+        <!--story text here. the stuff that is not supplied by the user.-->
+        <!--<p>{{entry}}</p>
+    {% endfor %}-->
+<!--<input type="text" value="Noun">
+<input type="submit" value="Submit">-->
+{% else %}
+    <p>No entries available</p>
+{% endif %}
